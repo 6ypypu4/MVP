@@ -1,0 +1,214 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6290e4 0%, #365486 100%);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background Animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.01%);
+    background-size: 20px 20px;
+    z-index: -1;
+    animation: moveBackground 3s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-20px) translateX(-20px);
+    }
+}
+
+/* Word Input and Feedback */
+#user-input {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+#user-input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+#feedback {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.input-container {
+    position: relative;
+    padding-top: 20px;
+}
+
+.demo-container {
+    max-width: 800px;
+    margin: 150px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.5);
+}
+
+.word-container {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    margin-bottom: 20px;
+    will-change: transform;
+}
+
+.word-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.word {
+    flex: 0 1 auto;
+    padding: 10px 15px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    color: #fff;
+    background: transparent;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    will-change: transform;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+}
+
+.word.active {
+    font-size: 22px;
+    color: #ffffff;
+    transform: scale(1.05);
+    background: transparent;
+    border: none;
+}
+
+.word.active::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, #ffffff, #f0f0f0);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: opacity 0.2s ease;
+}
+
+@keyframes underline {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.translation {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Word Pool Selection */
+#pool-selection {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.pool-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+}
+
+.pool-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pool-btn {
+    padding: 12px 25px;
+    border: 2px solid rgba(40,167,69,0.8);
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.pool-btn.active {
+    background: linear-gradient(135deg, rgba(40,167,69,0.8), rgba(76,175,80,0.8));
+    color: white;
+    border-color: transparent;
+}
+
+.pool-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+}
+  

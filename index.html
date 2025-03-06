@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Изучи казахский язык с печатью слов</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="demo">
+      <div class="demo-container">
+        <div class="word-container" id="word-container"></div>
+        <div class="input-container">
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Начните писать здесь..."
+          />
+          <div id="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pool-selection">
+      <div class="pool-container">
+        <h3>Выберите набор слов:</h3>
+        <div class="pool-buttons">
+          <button class="pool-btn active" data-pool="all">Все слова</button>
+          <button class="pool-btn" data-pool="animals">Животные</button>
+          <button class="pool-btn" data-pool="nature">Природа</button>
+          <button class="pool-btn" data-pool="objects">Объекты</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
